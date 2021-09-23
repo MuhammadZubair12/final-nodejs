@@ -6,7 +6,7 @@ const UserController = () => {
   const register = async (req, res) => {
     const { body } = req;
 
-    if (body.password === body.password2) {
+    if (body.password) {
       try {
         const user = await User.create({
           email: body.email,
