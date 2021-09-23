@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Company = require('../models/Company')
 const authService = require('../services/auth.service');
 const bcryptService = require('../services/bcrypt.service');
 const models = require('../models'),
@@ -90,7 +91,7 @@ const UserController = () => {
       phone_number:body.phone_number,
       status:body.status
     }
-    return models.company.create(cs).then(_cs=> {
+    return Company.create(cs).then(_cs=> {
       return res.status(200).json(_cs);
       // return console.log(_cs);
     }).catch(err=> {
