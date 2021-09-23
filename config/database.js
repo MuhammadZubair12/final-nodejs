@@ -13,6 +13,11 @@ switch (process.env.NODE_ENV) {
       connection.production.password, {
         host: connection.production.host,
         dialect: connection.production.dialect,
+        dialectOptions: {
+          ssl: { rejectUnauthorized: false },
+          useUTC: true,
+          sslmode: require
+        },
         pool: {
           max: 5,
           min: 0,
@@ -28,6 +33,11 @@ switch (process.env.NODE_ENV) {
       connection.testing.password, {
         host: connection.testing.host,
         dialect: connection.testing.dialect,
+        dialectOptions: {
+          ssl: { rejectUnauthorized: false },
+          useUTC: true,
+          sslmode: require
+        },
         pool: {
           max: 5,
           min: 0,
@@ -43,6 +53,11 @@ switch (process.env.NODE_ENV) {
       connection.development.password, {
         host: connection.development.host,
         dialect: connection.development.dialect,
+        dialectOptions: {
+          ssl: { rejectUnauthorized: false },
+          useUTC: true,
+          sslmode: require
+        },
         pool: {
           max: 5,
           min: 0,
