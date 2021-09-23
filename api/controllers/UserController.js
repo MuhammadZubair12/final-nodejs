@@ -80,7 +80,7 @@ const UserController = () => {
       return res.status(500).json({ msg: 'Internal server error' });
     }
   };
-  const company = (req, res) => {
+  const company = async(req, res) => {
     const body = req.body;
     console.log('Body', body);
     const cs =  {
@@ -91,12 +91,13 @@ const UserController = () => {
       phone_number:body.phone_number,
       status:body.status
     }
-    return Company.create(cs).then(_cs=> {
-      return res.status(200).json(_cs);
-      // return console.log(_cs);
-    }).catch(err=> {
-      return res.status(500).json(err);
-    });
+    try {
+      const com = await Company.create(user);
+      return res.status(200).json({com})
+    }catch (err) {
+      console.log(err);
+      return res.status(500).json({ msg: 'Internal server error' });
+    }
   }
 
 
