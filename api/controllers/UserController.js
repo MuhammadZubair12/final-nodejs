@@ -1,5 +1,4 @@
 const User = require('../models/User');
-const Company = require('../models/Company')
 const authService = require('../services/auth.service');
 const bcryptService = require('../services/bcrypt.service');
 const models = require('../models'),
@@ -80,33 +79,11 @@ const UserController = () => {
       return res.status(500).json({ msg: 'Internal server error' });
     }
   };
-  const company = async(req, res) => {
-    const body = req.body;
-    console.log('Body', body);
-    const cs =  {
-      company_name: body.company_name,
-      email:body.email,
-      longitude:body.longitude,
-      latitude:body.latitude,
-      phone_number:body.phone_number,
-      status:body.status
-    }
-    try {
-      const com = await Company.create(user);
-      return res.status(200).json({com})
-    }catch (err) {
-      console.log(err);
-      return res.status(500).json({ msg: 'Internal server error' });
-    }
-  }
-
-
   return {
     register,
     login,
     validate,
     getAll,
-    company,
   };
 };
 
