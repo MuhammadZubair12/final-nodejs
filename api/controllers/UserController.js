@@ -8,7 +8,6 @@ const Abc = require('../models/Abc');
 const UserController = () => {
   const companyregister = async (req, res) => {
     const { body } = req;
-    try {
       const com = await Company.create({
         company_name: body.company_name,
         email: body.email,
@@ -17,36 +16,37 @@ const UserController = () => {
         phone_number: body.phone_number,
         status:body.status
       })
-      return res.status(200).json(com)
-    } catch (err) {
-      res.status(500).json({msg: 'Internal Server error'})
-    }
+      if (com) {
+        return res.status(200).json(com);
+      } else {
+        return res.status(500).json({msg: 'Internal Server error'});
+      }
   };
 
   const assets = async (req, res) => {
     const { body } = req;
-    try {
-      const com = await Assets.create({
-        assets_code: body.assets_code,
-        name: body.name,
-        status:body.status
-      })
-      return res.status(200).json(com)
-    } catch (err) {
-      res.status(500).json({msg: 'Internal Server error'})
-    }
+    const com = await Assets.create({
+      assets_code: body.assets_code,
+      name: body.name,
+      status:body.status
+    });
+    if (com) {
+      return res.status(200).json(com);
+    } else {
+      return res.status(500).json({msg: 'Internal Server error'});
+      }
   };
 
   const abc = async (req, res) => {
     const { body } = req;
-    try {
-      const com = await Abc.create({
+    const com = await Abc.create({
         name: body.name,
         status:body.status
-      })
-      return res.status(200).json(com)
-    } catch (err) {
-      res.status(500).json({msg: 'Internal Server error'})
+    });
+    if (com) {
+      return res.status(200).json(com);
+    } else {
+      return res.status(500).json({msg: 'Internal Server error'});
     }
   };
   const register = async (req, res) => {
