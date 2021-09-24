@@ -1,8 +1,7 @@
 const User = require('../models/User');
 const authService = require('../services/auth.service');
 const bcryptService = require('../services/bcrypt.service');
-const models = require('../models'),;
-const Company = require('../models/company');
+const Company = require('../models/Company');
 
 const UserController = () => {
   const companyregister = async (req, res) => {
