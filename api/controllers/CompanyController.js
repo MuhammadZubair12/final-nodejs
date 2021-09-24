@@ -19,7 +19,7 @@ const CompanyController = () => {
     }
   }
   return {
-    companyregister
+    companyregister,
   };
 };
 
