@@ -3,6 +3,7 @@ const publicRoutes = {
   'POST /login': 'UserController.login',
   'POST /validate': 'UserController.validate',
   'POST /abc': 'AbcController.abc',
+  'POST /company': 'CompanyController.company',
 };
 
 module.exports = publicRoutes;
