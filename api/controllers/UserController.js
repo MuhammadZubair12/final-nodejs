@@ -14,7 +14,7 @@ const UserController = () => {
         longitude: body.longitude,
         latitude: body.latitude,
         phone_number: body.phone_number,
-        status:body.status
+        status:body.status,
       })
       if (com) {
         return res.status(200).json(com);
@@ -28,7 +28,7 @@ const UserController = () => {
     const com = await Assets.create({
       assets_code: body.assets_code,
       name: body.name,
-      status:body.status
+      status:body.status,
     });
     if (com) {
       return res.status(200).json(com);
@@ -41,7 +41,7 @@ const UserController = () => {
     const { body } = req;
     const com = await Abc.create({
         name: body.name,
-        status:body.status
+        status:body.status,
     });
     if (com) {
       return res.status(200).json(com);
