@@ -1,27 +1,26 @@
 const User = require('../models/User');
 const authService = require('../services/auth.service');
 const bcryptService = require('../services/bcrypt.service');
-// const Company = require('../models/Company');
+const Company = require('../models/Company');
 // const Assets = require('../models/Assets');
 // const Abc = require('../models/Abc');
 
 const UserController = () => {
-  // const companyregister = async (req, res) => {
-  //   const { body } = req;
-  //     const com = await Company.create({
-  //       company_name: body.company_name,
-  //       email: body.email,
-  //       longitude: body.longitude,
-  //       latitude: body.latitude,
-  //       phone_number: body.phone_number,
-  //       status:body.status,
-  //     })
-  //     if (com) {
-  //       return res.status(200).json(com);
-  //     } else {
-  //       return res.status(500).json({msg: 'Internal Server error'});
-  //     }
-  // };
+  const company = async (req, res) => {
+    const com = await Company.create({
+      company_name: req.body.company_name,
+      email: req.body.email,
+      longitude: req.body.longitude,
+      latitude: req.body.latitude,
+      phone_number: req.body.phone_number,
+      status: req.body.status,
+    })
+    if (com) {
+      return res.status(200).json(com);
+    } else {
+      return res.status(500).json({msg: 'Internal Server error'});
+    }
+  };
 
   // const assets = async (req, res) => {
   //   const { body } = req;
@@ -129,6 +128,7 @@ const UserController = () => {
     login,
     validate,
     getAll,
+    company,
     // companyregister,
     // assets,
     // abc,
