@@ -53,11 +53,6 @@ switch (process.env.NODE_ENV) {
       connection.development.password, {
         host: connection.development.host,
         dialect: connection.development.dialect,
-        dialectOptions: {
-          ssl: { rejectUnauthorized: false },
-          useUTC: true,
-          sslmode: require
-        },
         pool: {
           max: 5,
           min: 0,

@@ -1,8 +1,8 @@
 const development = {
-  database: 'daok5s3mq2qivs',
-  username: 'otgrnegltiqonb',
-  password: '0eb759d3c69f5b9da3f7c4a825cc97c7b2889e790bb8329aa8ca9ad54d4deed6',
-  host: 'ec2-44-199-83-229.compute-1.amazonaws.com',
+  database: 'final',
+  username: 'postgres',
+  password: 'c00822631',
+  host: 'localhost',
   dialect: 'postgres',
 };
 
