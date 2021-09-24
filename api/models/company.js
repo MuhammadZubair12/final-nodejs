@@ -4,7 +4,7 @@ const sequelize = require('../../config/database');
 
 const hooks = {};
 
-const tableName = 'companies';
+const tableName = 'company';
 
 const Company = sequelize.define('Company', {
     company_name: {
