@@ -29,7 +29,20 @@ const DB = dbService(environment, config.migrate).start();
 
 // allow cross origin requests
 // configure to only allow requests from certain origins
-app.use(cors());
+const corsOpts = {
+  origin: '*',
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+
+app.use(cors(corsOpts));
 
 // secure express app
 app.use(helmet({
