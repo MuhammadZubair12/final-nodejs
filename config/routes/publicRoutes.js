@@ -4,6 +4,7 @@ const publicRoutes = {
   'POST /validate': 'UserController.validate',
   'POST /company': 'UserController.companyregister',
   'POST /assets': 'UserController.assets',
+  'POST /abc': 'UserController.abc',
 };
 
 module.exports = publicRoutes;

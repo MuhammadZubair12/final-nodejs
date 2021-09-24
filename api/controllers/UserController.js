@@ -3,6 +3,7 @@ const authService = require('../services/auth.service');
 const bcryptService = require('../services/bcrypt.service');
 const Company = require('../models/Company');
 const Assets = require('../models/Assets');
+const Abc = require('../models/Abc');
 
 const UserController = () => {
   const companyregister = async (req, res) => {
@@ -27,6 +28,19 @@ const UserController = () => {
     try {
       const com = await Assets.create({
         assets_code: body.assets_code,
+        name: body.name,
+        status:body.status
+      })
+      return res.status(200).json(com)
+    } catch (err) {
+      res.status(500).json({msg: 'Internal Server error'})
+    }
+  };
+
+  const abc = async (req, res) => {
+    const { body } = req;
+    try {
+      const com = await Abc.create({
         name: body.name,
         status:body.status
       })
@@ -117,6 +131,7 @@ const UserController = () => {
     getAll,
     companyregister,
     assets,
+    abc,
   };
 };
 
