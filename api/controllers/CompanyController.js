@@ -27,7 +27,7 @@ const CompanyController = () => {
         if (!data) {
           return res
             .status(400)
-            .json({ msg: "Data not found " });
+            .json({ msg: "Record not found " });
         }
         Company.update(
           {
