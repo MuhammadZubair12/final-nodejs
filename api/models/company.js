@@ -19,6 +19,9 @@ const Company = sequelize.define('Company', {
     latitude: {
         type: Sequelize.STRING,
     },
+    address: {
+        type: Sequelize.STRING,
+    },
     phone_number: {
         type: Sequelize.STRING,
     },

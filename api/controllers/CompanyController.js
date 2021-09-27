@@ -7,6 +7,7 @@ const CompanyController = () => {
       email: req.body.email,
       longitude: req.body.longitude,
       latitude: req.body.latitude,
+      address: req.body.address,
       phone_number: req.body.phone_number,
       status: req.body.status,
     });
@@ -34,6 +35,7 @@ const CompanyController = () => {
             email:body.email,
             longitude:body.longitude,
             latitude:body.latitude,
+            address:body.address,
             phone_number:body.phone_number,
             status:body.status
           },
