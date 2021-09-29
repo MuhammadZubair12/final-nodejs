@@ -36,6 +36,12 @@ const CompanyController = () => {
             .status(400)
             .json({ msg: "Record not found " });
         }
+        const check = Company.findOne({
+          where: {email: req.body.email}
+        });
+        if (check) {
+          return res.status(409).send();
+        } else {
         Company.update(
           {
             company_name: body.company_name,
@@ -58,6 +64,7 @@ const CompanyController = () => {
           .catch(() => {
             res.status(500).json({ msg: "Internal Server Error" });
           });
+        }
       })
       .catch(() => {
         res.status(500).json({ msg: "Internal Server Error " });
