@@ -5,6 +5,14 @@ const development = {
   host: 'ec2-44-199-83-229.compute-1.amazonaws.com',
   dialect: 'postgres',
 };
+// const development = {
+//   database: 'final',
+//   username: 'postgres',
+//   password: 'c00822631',
+//   host: 'localhost',
+//   dialect: 'postgres',
+// };
+
 
 const testing = {
   database: 'daok5s3mq2qivs',

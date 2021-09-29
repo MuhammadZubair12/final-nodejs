@@ -2,19 +2,26 @@ const Company = require('../models/company');
 
 const CompanyController = () => {
   const company = async (req, res) => {
-    const com = await Company.create({
-      company_name: req.body.company_name,
-      email: req.body.email,
-      longitude: req.body.longitude,
-      latitude: req.body.latitude,
-      address: req.body.address,
-      phone_number: req.body.phone_number,
-      status: req.body.status,
+    const check = await Company.findOne({
+      where: {email:req.body.email}
     });
-    if (com) {
-      return res.status(200).json(com);
+    if (check) {
+      return res.status(401).json({errMsg: 'Email Already Exists'})
     } else {
-      return res.status(500).json({msg: 'Internal Server error'});
+      const com = await Company.create({
+        company_name: req.body.company_name,
+        email: req.body.email,
+        longitude: req.body.longitude,
+        latitude: req.body.latitude,
+        address: req.body.address,
+        phone_number: req.body.phone_number,
+        status: req.body.status,
+      });
+      if (com) {
+        return res.status(200).json(com);
+      } else {
+        return res.status(500).json({msg: 'Internal Server error'});
+      }
     }
   };
 
