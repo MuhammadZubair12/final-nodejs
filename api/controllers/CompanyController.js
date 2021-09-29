@@ -36,37 +36,28 @@ const CompanyController = () => {
             .status(400)
             .json({ msg: "Record not found " });
         }
-        return Company.findOne({
-          where: {email: req.body.email}
-        }).then ((check) => {
-          if (check) {
-            return res.status(409).send();
-          } else {
-            Company.update(
-              {
-                company_name: body.company_name,
-                email:body.email,
-                longitude:body.longitude,
-                latitude:body.latitude,
-                address:body.address,
-                phone_number:body.phone_number,
-                status:body.status
-              },
-              {
-                where: {
-                  id: req.params.id,
-                },
-              }
-            )
-              .then(() => {
-                res.status(200).json({ msg: "Data Updated Successfully" });
-              })
-              .catch(() => {
-                res.status(500).json({ msg: "Internal Server Error" });
-              });
+        Company.update(
+          {
+            company_name: body.company_name,
+            email:body.email,
+            longitude:body.longitude,
+            latitude:body.latitude,
+            address:body.address,
+            phone_number:body.phone_number,
+            status:body.status
+          },
+          {
+            where: {
+              id: req.params.id,
+            },
           }
-        })
-        
+        )
+          .then(() => {
+            res.status(200).json({ msg: "Data Updated Successfully" });
+          })
+          .catch(() => {
+            res.status(500).json({ msg: "Internal Server Error" });
+          });
       })
       .catch(() => {
         res.status(500).json({ msg: "Internal Server Error " });
