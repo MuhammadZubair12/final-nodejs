@@ -6,7 +6,7 @@ const CompanyController = () => {
       where: {email:req.body.email}
     });
     if (check) {
-      return res.status(401).json({errMsg: 'Email Already Exists'})
+      return res.status(401).send();
     } else {
       const com = await Company.create({
         company_name: req.body.company_name,
