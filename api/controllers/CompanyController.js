@@ -6,7 +6,7 @@ const CompanyController = () => {
       where: {email:req.body.email}
     });
     if (check) {
-      return res.status(401).send();
+      return res.status(409).send();
     } else {
       const com = await Company.create({
         company_name: req.body.company_name,
